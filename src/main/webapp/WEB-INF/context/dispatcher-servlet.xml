@@ -33,4 +33,7 @@
 		<property name="suffix" value=".jsp" />
 
 	</bean>
+	
+	<mvc:resources mapping="/template/**" location="/template/" />
+	
 </beans>
