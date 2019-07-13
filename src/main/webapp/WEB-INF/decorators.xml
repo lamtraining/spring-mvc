@@ -2,12 +2,12 @@
 <decorators defaultdir="/decorators">
 
 	
-    <decorator name="trang-chu" page="web.jsp">
-       <pattern>/trang-chu</pattern>
+    <decorator name="web" page="web.jsp">
+       <pattern>/*</pattern>
     </decorator>
     
-    <decorator name="home" page="admin.jsp">
-       <pattern>/home</pattern>
+    <decorator name="admin" page="admin.jsp">
+       <pattern>/quan-tri*</pattern>
     </decorator>
-
+    
 </decorators>
