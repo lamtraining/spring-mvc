@@ -21,10 +21,10 @@ public class NewEntity {
 	@Column(name = "thumbnail")
 	private String thumbnail;
 	
-	@Column(name = "shortdescription")
+	@Column(name = "shortdescription", columnDefinition = "TEXT")
 	private String shortDescription;
 	
-	@Column(name = "shortdescription")
+	@Column(name = "content", columnDefinition = "TEXT")
 	private String content;
 
 	public Long getId() {
