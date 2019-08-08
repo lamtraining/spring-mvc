@@ -10,24 +10,24 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "new")
-public class NewEntity {
+@Table(name = "user")
+public class UserEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "title")
-	private String title;
+	@Column(name = "username")
+	private String userName;
 	
-	@Column(name = "thumbnail")
-	private String thumbnail;
+	@Column(name = "password")
+	private String password;
 	
-	@Column(name = "shortdescription", columnDefinition = "TEXT")
-	private String shortDescription;
+	@Column(name = "fullname")
+	private String fullName;
 	
-	@Column(name = "content", columnDefinition = "TEXT")
-	private String content;
+	@Column
+	private Integer status;
 	
 	@Column(name = "createddate")
 	private Date createdDate;
@@ -44,37 +44,37 @@ public class NewEntity {
 	public Long getId() {
 		return id;
 	}
-	
-	public String getTitle() {
-		return title;
+
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public String getThumbnail() {
-		return thumbnail;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setThumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public String getShortDescription() {
-		return shortDescription;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setShortDescription(String shortDescription) {
-		this.shortDescription = shortDescription;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
-	public String getContent() {
-		return content;
+	public Integer getStatus() {
+		return status;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 	public Date getCreatedDate() {
@@ -107,5 +107,5 @@ public class NewEntity {
 
 	public void setModifiedBy(String modifiedBy) {
 		this.modifiedBy = modifiedBy;
-	}	
+	}
 }
