@@ -1,21 +1,16 @@
 package com.laptrinhjavaweb.entity;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "role")
-public class RoleEntity {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+public class RoleEntity extends BaseEntity {
 	
 	@Column(name = "name")
 	private String name;
@@ -23,19 +18,9 @@ public class RoleEntity {
 	@Column(name = "code")
 	private String code;
 	
-	@Column(name = "createddate")
-	private Date createdDate;
+	@ManyToMany(mappedBy = "roles")
+    private List<UserEntity> users = new ArrayList<>();
 	
-	@Column(name = "modifieddate")
-	private Date modifiedDate;
-	
-	@Column(name = "createdby")
-	private String createdBy;
-	
-	@Column(name = "modifiedby")
-	private String modifiedBy;
-
-
 	public String getName() {
 		return name;
 	}
@@ -52,39 +37,11 @@ public class RoleEntity {
 		this.code = code;
 	}
 
-	public Long getId() {
-		return id;
+	public List<UserEntity> getUsers() {
+		return users;
 	}
 
-	public Date getCreatedDate() {
-		return createdDate;
+	public void setUsers(List<UserEntity> users) {
+		this.users = users;
 	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Date getModifiedDate() {
-		return modifiedDate;
-	}
-
-	public void setModifiedDate(Date modifiedDate) {
-		this.modifiedDate = modifiedDate;
-	}
-
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public String getModifiedBy() {
-		return modifiedBy;
-	}
-
-	public void setModifiedBy(String modifiedBy) {
-		this.modifiedBy = modifiedBy;
-	}	
 }

@@ -1,49 +1,35 @@
 package com.laptrinhjavaweb.entity;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class UserEntity {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
+public class UserEntity extends BaseEntity {
+
 	@Column(name = "username")
 	private String userName;
-	
+
 	@Column(name = "password")
 	private String password;
-	
+
 	@Column(name = "fullname")
 	private String fullName;
-	
+
 	@Column
 	private Integer status;
-	
-	@Column(name = "createddate")
-	private Date createdDate;
-	
-	@Column(name = "modifieddate")
-	private Date modifiedDate;
-	
-	@Column(name = "createdby")
-	private String createdBy;
-	
-	@Column(name = "modifiedby")
-	private String modifiedBy;
 
-	public Long getId() {
-		return id;
-	}
+	@ManyToMany
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), 
+								  inverseJoinColumns = @JoinColumn(name = "roleid"))
+	private List<RoleEntity> roles = new ArrayList<>();
 
 	public String getUserName() {
 		return userName;
@@ -77,35 +63,11 @@ public class UserEntity {
 		this.status = status;
 	}
 
-	public Date getCreatedDate() {
-		return createdDate;
+	public List<RoleEntity> getRoles() {
+		return roles;
 	}
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Date getModifiedDate() {
-		return modifiedDate;
-	}
-
-	public void setModifiedDate(Date modifiedDate) {
-		this.modifiedDate = modifiedDate;
-	}
-
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public String getModifiedBy() {
-		return modifiedBy;
-	}
-
-	public void setModifiedBy(String modifiedBy) {
-		this.modifiedBy = modifiedBy;
+	public void setRoles(List<RoleEntity> roles) {
+		this.roles = roles;
 	}
 }
