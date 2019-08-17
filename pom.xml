@@ -58,6 +58,13 @@
 			<version>${springframework.version}</version>
 		</dependency>
 		
+		<!-- spring aspects -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
 		<!-- spring security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -95,20 +102,20 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-		
+
 		<!-- sitemesh decorator -->
 		<dependency>
 			<groupId>opensymphony</groupId>
 			<artifactId>sitemesh</artifactId>
 			<version>2.4.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
-		
+
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -125,14 +132,14 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		
+
 		<!-- Spring data -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 			<version>${spring.data}</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>

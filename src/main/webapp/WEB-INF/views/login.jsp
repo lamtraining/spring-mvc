@@ -12,9 +12,9 @@
 		<!-- <h1 class="form-heading">login Form</h1> -->
 		<div class="login-form">
 			<div class="main-div">
-				<c:if test="${not empty message}">
-					<div class="alert alert-${alert}">
-							${message}
+				<c:if test="${param.incorrectAccount != null}">
+					<div class="alert alert-danger">	
+							Username or password incorrect
 					</div>
 				</c:if>
 				<form action="j_spring_security_check" id="formLogin" method="post">

@@ -16,7 +16,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
-		ModelAndView mav = new ModelAndView("web/home");
+		ModelAndView mav = new ModelAndView("login");
 		return mav;
 	}
 }
