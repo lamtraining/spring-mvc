@@ -57,7 +57,7 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-		
+
 		<!-- spring aspects -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -79,6 +79,13 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-acl</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+
+		<!-- spring secuirty taglibs -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
 			<version>${springsecurity.version}</version>
 		</dependency>
 

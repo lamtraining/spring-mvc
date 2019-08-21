@@ -8,7 +8,10 @@
             http://www.springframework.org/schema/security/spring-security-3.2.xsd">
             
     <http auto-config="false" use-expressions="true" disable-url-rewriting="true">
-    	<access-denied-handler error-page="/access-denied" />
+    
+    	<intercept-url pattern="/quan-tri/trang-chu" access="hasAnyRole('ADMIN')" />
+    	
+    	<access-denied-handler error-page="/accessDenied" />
         <form-login  login-page="/dang-nhap"
                      username-parameter="j_username"
                      password-parameter="j_password"
