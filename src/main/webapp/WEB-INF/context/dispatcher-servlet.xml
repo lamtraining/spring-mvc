@@ -21,7 +21,7 @@
               http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:component-scan
-		base-package="com.laptrinhjavaweb.controller" />
+		base-package="com.laptrinhjavaweb.controller, com.laptrinhjavaweb.api" />
 
 	<mvc:annotation-driven />
 
