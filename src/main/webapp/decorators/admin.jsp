@@ -17,9 +17,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     
-    <%-- <script src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script> --%>
     
-    <%-- <script src="<c:url value='/ckeditor/ckeditor.js' />"></script> --%>
 </head>
 <body class="no-skin">
 	<!-- header -->
@@ -45,7 +43,7 @@
 		</a>
 	</div>
 	
-	
+	<script src="<c:url value='/template/admin/paging/jquery.twbsPagination.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/jquery-ui.custom.min.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/jquery.ui.touch-punch.min.js' />"></script>
