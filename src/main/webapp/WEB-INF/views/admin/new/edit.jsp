@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@include file="/common/taglib.jsp"%>
+<c:url var="newURL" value="/quan-tri/bai-viet/danh-sach"/>
+<c:url var="newAPI" value="/api/new"/>
 <html>
 <head>
 <title>Chỉnh sửa bài viết</title>
@@ -61,6 +63,7 @@
 						  		<form:textarea path="content" rows="5" cols="10" cssClass="form-control" id="content"/>
 						  	</div>
 						</div>
+						<form:hidden path="id" id="newId"/>
 						<div class="clearfix form-actions">
 							<div class="col-md-offset-3 col-md-9">
 											<c:if test="${not empty model.id}">
@@ -93,9 +96,50 @@
 <script>
 	$('#btnAddOrUpdateNew').click(function (e) {
 	    e.preventDefault();
+	    var data = {};
 	    var formData = $('#formSubmit').serializeArray();
-	    console.log(formData);
+	    $.each(formData, function (i, v) {
+            data[""+v.name+""] = v.value;
+        });
+	    var id = $('#newId').val();
+	    if (id == "") {
+	    	addNew(data);
+	    } else {
+	    	updateNew(data);
+	    }
 	});
+	
+	function addNew(data) {
+		$.ajax({
+            url: '${newAPI}',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function (result) {
+            	window.location.href = "${newURL}?page=1&limit=2";
+            },
+            error: function (error) {
+            	window.location.href = "${newURL}?page=1&limit=2";
+            }
+        });
+	}
+	
+	function updateNew(data) {
+		$.ajax({
+            url: '${newAPI}',
+            type: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function (result) {
+            	window.location.href = "${newURL}?page=1&limit=2";
+            },
+            error: function (error) {
+            	window.location.href = "${newURL}?page=1&limit=2";
+            }
+        });
+	}
 </script>
 </body>
 </html>
