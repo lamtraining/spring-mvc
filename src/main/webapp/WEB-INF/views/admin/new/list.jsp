@@ -27,6 +27,11 @@
 					<div class="page-content">
 						<div class="row">
 							<div class="col-xs-12">
+								<c:if test="${not empty message}">
+									<div class="alert alert-${alert}">
+			  							${message}
+									</div>
+								</c:if>
 								<div class="widget-box table-filter">
 									<div class="table-btn-controls">
 										<div class="pull-right tableTools-container">
