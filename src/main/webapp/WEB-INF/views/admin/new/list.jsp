@@ -1,7 +1,8 @@
 <%@include file="/common/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<c:url var="newAPI" value="/api/new"/>
+<c:url var="newURL" value="/quan-tri/bai-viet/danh-sach"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -60,6 +61,7 @@
 											<table class="table table-bordered">
 												<thead>
 													<tr>
+														<th><input type="checkbox" id="checkAll"></th>
 														<th>Tên bài viết</th>
 														<th>Mô tả ngắn</th>
 														<th>Thao tác</th>
@@ -68,6 +70,7 @@
 												<tbody>
 													<c:forEach var="item" items="${model.listResult}">
 														<tr>
+															<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
 															<td>${item.title}</td>
 															<td>${item.shortDescription}</td>
 															<td>
@@ -125,10 +128,27 @@
 					  cancelButtonText: "Hủy bỏ",
 					}).then(function(isConfirm) {
 					  if (isConfirm) {
-						  console.log("anh yeu em");
+							var ids = $('tbody input[type=checkbox]:checked').map(function () {
+					            return $(this).val();
+					        }).get();
+							deleteNew(ids);
 					  }
 					});
 			} 
+			function deleteNew(data) {
+		        $.ajax({
+		            url: '${newAPI}',
+		            type: 'DELETE',
+		            contentType: 'application/json',
+		            data: JSON.stringify(data),
+		            success: function (result) {
+		                window.location.href = "${newURL}?page=1&limit=2&message=delete_success";
+		            },
+		            error: function (error) {
+		            	window.location.href = "${newURL}?page=1&limit=2&message=error_system";
+		            }
+		        });
+		    }
 		</script>
 	</body>
 	</html>
